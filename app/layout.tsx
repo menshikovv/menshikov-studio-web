@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ru_RU',
-    url: 'https://menshikov-studio.ru',
+    url: 'https://menshikov-studio-web.vercel.app',
     title: 'Menshikov Studio — Разработка сайтов и Telegram Mini Apps',
     description: 'Профессиональная разработка веб-сайтов и мини-приложений для Telegram. Создаем современные digital-решения для вашего бизнеса.',
     siteName: 'Menshikov Studio',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     images: ['https://i.imgur.com/ls2jZ0E.png'],
   },
   alternates: {
-    canonical: 'https://menshikov.studio',
+    canonical: 'https://menshikov-studio-web.vercel.app',
   },
   generator: "v0.app",
   icons: {
@@ -75,6 +75,10 @@ export default function RootLayout({
     <html lang="ru">
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta property="og:image" content="https://i.imgur.com/ls2jZ0E.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:image" content="https://i.imgur.com/ls2jZ0E.png" />
       </head>
       <body className={`${unbounded.className} font-sans antialiased`}>
         {children}
