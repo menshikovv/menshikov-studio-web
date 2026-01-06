@@ -1,54 +1,65 @@
 "use client"
 
 import Image from "next/image"
-import { Code2, Smartphone, ArrowRight } from "lucide-react"
+import { Code2, Smartphone, ArrowRight, Bot, ChevronLeft, ChevronRight, X } from "lucide-react"
 import { useState } from "react"
 import { ScrollFade } from "@/components/scroll-fade"
 import { AnimatedUnderline } from "@/components/animated-underline"
-
-const projects = [
-  {
-    id: 1,
-    title: "Интернет-магазин премиум часов",
-    description: "Полный редизайн и разработка e-commerce платформы с интеграцией платежных систем и CRM",
-    category: "website",
-    image: "/luxury-watch-ecommerce-website.jpg",
-    link: "#",
-    duration: "6 недель",
-  },
-  {
-    id: 2,
-    title: "Telegram Mini App для фитнес-клуба",
-    description: "Мини-приложение для записи на тренировки, отслеживания прогресса и оплаты абонементов",
-    category: "telegram",
-    image: "/fitness-app-interface.png",
-    link: "#",
-    duration: "4 недели",
-  },
-  {
-    id: 3,
-    title: "Корпоративный портал для IT-компании",
-    description: "Многофункциональный сайт с личным кабинетом, блогом и системой управления проектами",
-    category: "website",
-    image: "/modern-corporate-website-dashboard.jpg",
-    link: "#",
-    duration: "8 недель",
-  },
-  {
-    id: 4,
-    title: "Telegram бот для доставки еды",
-    description: "Полнофункциональное мини-приложение с каталогом, корзиной и интеграцией с системой доставки",
-    category: "telegram",
-    image: "/food-delivery-app-interface.png",
-    link: "#",
-    duration: "5 недель",
-  },
-]
+import { projects } from "./constants/my-cases"
 
 export function PortfolioSection() {
-  const [activeFilter, setActiveFilter] = useState<"all" | "website" | "telegram">("all")
+  // Показываем все проекты независимо от фильтра
+  const filteredProjects = projects
 
-  const filteredProjects = activeFilter === "all" ? projects : projects.filter((p) => p.category === activeFilter)
+  // Состояние для текущего изображения каждого проекта
+  const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({})
+
+  // Состояние для полноэкранного просмотра
+  const [fullscreenImage, setFullscreenImage] = useState<{
+    projectId: number
+    images: string[]
+    currentIndex: number
+    title: string
+  } | null>(null)
+
+  const nextImage = (projectId: number, totalImages: number) => {
+    setCurrentImageIndex(prev => ({
+      ...prev,
+      [projectId]: ((prev[projectId] || 0) + 1) % totalImages
+    }))
+  }
+
+  const prevImage = (projectId: number, totalImages: number) => {
+    setCurrentImageIndex(prev => ({
+      ...prev,
+      [projectId]: ((prev[projectId] || 0) - 1 + totalImages) % totalImages
+    }))
+  }
+
+  const openFullscreen = (project: any) => {
+    setFullscreenImage({
+      projectId: project.id,
+      images: project.images || ["/placeholder.svg"],
+      currentIndex: currentImageIndex[project.id] || 0,
+      title: project.title
+    })
+  }
+
+  const closeFullscreen = () => {
+    setFullscreenImage(null)
+  }
+
+  const nextFullscreenImage = () => {
+    if (!fullscreenImage) return
+    const newIndex = (fullscreenImage.currentIndex + 1) % fullscreenImage.images.length
+    setFullscreenImage(prev => prev ? { ...prev, currentIndex: newIndex } : null)
+  }
+
+  const prevFullscreenImage = () => {
+    if (!fullscreenImage) return
+    const newIndex = (fullscreenImage.currentIndex - 1 + fullscreenImage.images.length) % fullscreenImage.images.length
+    setFullscreenImage(prev => prev ? { ...prev, currentIndex: newIndex } : null)
+  }
 
   return (
     <section id="portfolio-section" className="relative py-20 md:py-32 px-4 md:px-8 overflow-hidden">
@@ -70,13 +81,13 @@ export function PortfolioSection() {
               </AnimatedUnderline>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Проекты, которыми мы гордимся. Реальные результаты для реальных бизнесов.
+              Проекты, которыми мы гордимся. <br />Реальные результаты для реальных бизнесов.
             </p>
           </div>
         </ScrollFade>
 
         {/* Filter buttons */}
-        <ScrollFade delay={100}>
+        {/* <ScrollFade delay={100}>
           <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-12 md:mb-16">
             <button
               onClick={() => setActiveFilter("all")}
@@ -111,33 +122,72 @@ export function PortfolioSection() {
               Telegram Mini Apps
             </button>
           </div>
-        </ScrollFade>
+        </ScrollFade> */}
 
         {/* Project grid */}
         <ScrollFade delay={200}>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <div key={project.id} className="group relative h-full flex">
                 {/* Glass card */}
                 <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] flex flex-col w-full">
-                  {/* Project image */}
-                  <div className="relative h-64 md:h-80 overflow-hidden flex-shrink-0">
-                    <Image
-                      src={project.image || "/placeholder.svg"}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent" />
-
-                    {/* View project button on hover */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-medium flex items-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.6)] text-sm md:text-base">
-                        Смотреть проект
-                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                      </div>
+                  {project.layout && (
+                    <div className="absolute top-0 right-0 bg-gradient-to-br from-orange-500 to-orange-600 text-white text-sm font-bold px-4 md:px-6 py-2 md:py-3 rounded-bl-3xl z-10">
+                      МАКЕТ
                     </div>
+                  )}
+                  {/* Project image */}
+                  <div
+                    className="relative h-64 md:h-80 overflow-hidden flex-shrink-0 group/image cursor-pointer"
+                    onClick={() => openFullscreen(project)}
+                  >
+                    {/* Blurred background */}
+                    <Image
+                      src={project.images?.[currentImageIndex[project.id] || 0] || "/placeholder.svg"}
+                      alt={`${project.title} background`}
+                      fill
+                      className="object-cover blur-md scale-110"
+                    />
+                    {/* Main image centered */}
+                    <div className="absolute inset-0 flex items-start justify-center p-4">
+                      <Image
+                        src={project.images?.[currentImageIndex[project.id] || 0] || "/placeholder.svg"}
+                        alt={project.title}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-auto h-auto max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+
+                    {/* Navigation arrows - only show if multiple images */}
+                    {project.images && project.images.length > 1 && (
+                      <>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            prevImage(project.id, project.images!.length)
+                          }}
+                          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
+                        >
+                          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            nextImage(project.id, project.images!.length)
+                          }}
+                          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
+                        >
+                          <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                        </button>
+
+                        {/* Image counter */}
+                        <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs transition-opacity duration-300 z-20">
+                          {(currentImageIndex[project.id] || 0) + 1} / {project.images.length}
+                        </div>
+                      </>
+                    )}
                   </div>
 
                   {/* Project info */}
@@ -149,6 +199,8 @@ export function PortfolioSection() {
                       <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center flex-shrink-0">
                         {project.category === "website" ? (
                           <Code2 className="w-5 h-5 text-white" />
+                        ) : project.category === "bot" ? (
+                          <Bot className="w-5 h-5 text-white" />
                         ) : (
                           <Smartphone className="w-5 h-5 text-white" />
                         )}
@@ -163,6 +215,17 @@ export function PortfolioSection() {
                     <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-white/10">
                       <span className="text-gray-500 text-xs md:text-sm">Срок разработки: </span>
                       <span className="text-white font-medium text-xs md:text-sm">{project.duration}</span>
+                    </div>
+
+                    {/* View project button - moved here from hover overlay */}
+                    <div className="mt-auto">
+                      <button
+                        className="w-full px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-medium flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.6)] text-sm md:text-base hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] transition-all duration-300 cursor-pointer"
+                        onClick={() => window.open(project.link, '_blank')}
+                      >
+                        Смотреть проект
+                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -181,6 +244,66 @@ export function PortfolioSection() {
           </div>
         </ScrollFade>
       </div>
+
+      {/* Fullscreen modal */}
+      {fullscreenImage && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-300"
+          onClick={closeFullscreen}
+        >
+          <div className="relative max-w-4xl max-h-full w-full h-full flex items-center justify-center">
+            {/* Close button */}
+            <button
+              onClick={closeFullscreen}
+              className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-black/70 rounded-full text-white transition-colors duration-200"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Image */}
+            <div className="relative w-full h-full max-w-3xl max-h-[90vh] animate-in zoom-in-95 duration-300">
+              <Image
+                src={fullscreenImage.images[fullscreenImage.currentIndex]}
+                alt={`${fullscreenImage.title} - ${fullscreenImage.currentIndex + 1}`}
+                fill
+                className="object-contain rounded-lg"
+                quality={100}
+              />
+
+              {/* Navigation arrows positioned relative to image - only show if multiple images */}
+              {fullscreenImage.images.length > 1 && (
+                <>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      prevFullscreenImage()
+                    }}
+                    className="absolute -left-16 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-60"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      nextFullscreenImage()
+                    }}
+                    className="absolute -right-16 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-60"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Image counter - only show if multiple images */}
+            {fullscreenImage.images.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur-md rounded-full px-4 py-2 text-white text-sm">
+                {fullscreenImage.currentIndex + 1} / {fullscreenImage.images.length}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   )
 }

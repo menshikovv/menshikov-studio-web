@@ -183,3 +183,37 @@
   /* Reduced text shadow intensity for subtler effect */
   text-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.2), 0 0 60px rgba(255, 255, 255, 0.1);
 }
+
+/* Custom scroll arrow animation */
+@keyframes float-down {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.animate-float-down {
+  animation: float-down 2s ease-in-out infinite;
+}
+
+/* Enhanced bounce for scroll arrow */
+@keyframes enhanced-bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translateY(0px);
+  }
+  40%, 43% {
+    transform: translateY(-8px);
+  }
+  70% {
+    transform: translateY(-4px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+}
+
+.animate-enhanced-bounce {
+  animation: enhanced-bounce 2s ease-in-out infinite;
+}

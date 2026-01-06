@@ -1,20 +1,49 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, ChevronDown } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const [logoVisible, setLogoVisible] = useState(false)
+  const [textVisible, setTextVisible] = useState(false)
   const [typingComplete, setTypingComplete] = useState(false)
 
   useEffect(() => {
-    setIsVisible(true)
-    const timer = setTimeout(() => {
+    // Логотип появляется с задержкой и медленнее
+    const logoTimer = setTimeout(() => {
+      setLogoVisible(true)
+    }, 300)
+    
+    // Текст появляется быстрее после логотипа
+    const textTimer = setTimeout(() => {
+      setTextVisible(true)
+    }, 1000)
+    
+    // Остальные элементы появляются позже
+    const visibilityTimer = setTimeout(() => {
+      setIsVisible(true)
+    }, 1600)
+    
+    const typingTimer = setTimeout(() => {
       setTypingComplete(true)
-    }, 3500)
-    return () => clearTimeout(timer)
+    }, 4000)
+    
+    return () => {
+      clearTimeout(logoTimer)
+      clearTimeout(textTimer)
+      clearTimeout(visibilityTimer)
+      clearTimeout(typingTimer)
+    }
   }, [])
+
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services')
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   const scrollToPortfolio = () => {
     const portfolioSection = document.getElementById('portfolio-section')
@@ -30,15 +59,17 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         <div
-          className={`flex justify-center mb-8 md:mb-10 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"
-            }`}
+          className={`flex justify-center mb-8 md:mb-10 transition-all duration-2000 ease-out ${
+            logoVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+          }`}
         >
           <img src="/logo.png" alt="Menshikov Studio" width={400} className="md:w-[600px] w-[400px]" />
         </div>
 
         <h1
-          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-10 md:mb-12 leading-tight ${isVisible ? "opacity-100" : "opacity-0"
-            }`}
+          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-10 md:mb-12 leading-tight transition-all duration-1500 ease-out ${
+            textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
         >
           <span
             className={`block ${!typingComplete
@@ -53,7 +84,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <div
-          className={`flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center transition-all duration-1000 delay-600 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center transition-all duration-1000 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             }`}
         >
           <Button
@@ -75,7 +106,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className={`mt-16 md:mt-20 flex flex-wrap justify-center gap-4 md:gap-8 transition-opacity duration-1000 delay-800 ${isVisible ? "opacity-100" : "opacity-0"
+          className={`mt-16 md:mt-20 flex flex-wrap justify-center gap-4 md:gap-8 transition-all duration-1000 ease-out delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
         >
           {[
@@ -90,6 +121,28 @@ export function HeroSection() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Animated scroll arrow */}
+      <div 
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
+      >
+        <button
+          onClick={scrollToServices}
+          className="group flex flex-col items-center gap-2 cursor-pointer hover:scale-110 transition-all duration-300 animate-float-down hover:animate-none"
+          aria-label="Прокрутить вниз"
+        >
+          <div className="text-white/60 text-sm font-medium group-hover:text-white transition-colors duration-300">
+            Листай вниз
+          </div>
+          <div className="relative flex flex-col">
+            <ChevronDown className="w-6 h-6 text-white/80 group-hover:text-white transition-colors duration-300" />
+            <ChevronDown className="w-6 h-6 text-white/40 -mt-3 animate-enhanced-bounce" />
+            <ChevronDown className="w-6 h-6 text-white/20 -mt-3" style={{ animationDelay: '0.3s' }} />
+          </div>
+        </button>
       </div>
     </section>
   )
