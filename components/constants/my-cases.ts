@@ -61,6 +61,25 @@ export const projects = [
     },
     {
         id: 4,
+        title: 'Сайт "Гимназия ЛИДЕР"',
+        description: "Современный сайт для современной школы",
+        category: "website",
+        images: [
+            "https://i.imgur.com/vdwGuUs.png",
+            "https://i.imgur.com/vaNlVfH.png",
+            "https://i.imgur.com/l7OydoS.png",
+            "https://i.imgur.com/d6ruShq.png",
+            "https://i.imgur.com/fMsrzmN.png",
+            "https://i.imgur.com/a14zmpu.png",
+            "https://i.imgur.com/4SNYszl.png",
+            "https://i.imgur.com/nFptiX2.png",
+        ],
+        link: "https://lider-gym.vercel.app/about/gallery",
+        duration: "1 день",
+        layout: false,
+    },
+    {
+        id: 5,
         title: 'Telegram Mini Apps "Premium Brand"',
         description: "Мини-приложение для онлайн-магазина: дизайн, каталог товаров, интеграция с Google Excel",
         category: "telegram",
@@ -76,7 +95,7 @@ export const projects = [
         layout: false,
     },
     {
-        id: 5,
+        id: 6,
         title: 'Telegram Mini Apps "Получить разбор на эфире"',
         description: "Мини-приложение для оставление заявки для разбора на эфире + интеграция с Google Excel",
         category: "telegram",
@@ -93,7 +112,7 @@ export const projects = [
         layout: false,
     },
     {
-        id: 6,
+        id: 7,
         title: 'Telegram Mini Apps "Получить разбор на эфире" 2',
         description: "Мини-приложение для оставление заявки для разбора на эфире + интеграция с Google Excel",
         category: "telegram",
@@ -110,7 +129,7 @@ export const projects = [
         layout: false,
     },
     {
-        id: 7,
+        id: 8,
         title: 'Telegram Mini Apps "Егор Настоящий"',
         description: "Мини-приложение для своего блога и продажи инфопродукта",
         category: "telegram",
@@ -129,7 +148,7 @@ export const projects = [
         layout: true,
     },
     {
-        id: 8,
+        id: 9,
         title: 'Telegram Mini Apps "DAIREN. COMMUNITY"',
         description: "Мини-приложение для продажи инфопродукта",
         category: "telegram",

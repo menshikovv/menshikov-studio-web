@@ -7,9 +7,9 @@ import { useState } from "react"
 import { X } from "lucide-react"
 
 const testimonials = [
-  { id: 1, photo: "/review1.png" },
-  { id: 2, photo: "/review2.png" },
-  { id: 3, photo: "/review3.png" },
+  { id: 1, photo: "https://i.imgur.com/oASsSLO.png" },
+  { id: 2, photo: "https://i.imgur.com/EVA4kRV.png" },
+  { id: 3, photo: "https://i.imgur.com/U9pjBpK.png" },
 ]
 
 export function TestimonialsSection() {
