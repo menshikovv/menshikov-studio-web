@@ -49,9 +49,6 @@ export function TestimonialsSection() {
                 Отзывы{" "}
                 <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">клиентов</span>
               </h2>
-              <p className="text-gray-400 text-base md:text-lg lg:text-xl max-w-2xl mx-auto px-4">
-                Более 50 успешных проектов и довольных клиентов по всему миру
-              </p>
             </div>
           </ScrollFade>
 
@@ -75,12 +72,24 @@ export function TestimonialsSection() {
                           onClick={() => openFullscreen(testimonial.photo)}
                         >
                           <div className="relative w-full aspect-[4/5] md:aspect-[3/4] bg-gradient-to-br from-white/10 to-white/5">
+                            {/* Blurred background */}
                             <Image
                               src={testimonial.photo || "/placeholder.svg"}
-                              alt={`Отзыв ${testimonial.id}`}
+                              alt={`${testimonial.id} background`}
                               fill
-                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              className="object-cover blur-md scale-110"
                             />
+                            {/* Main image centered */}
+                            <div className="absolute inset-0 flex items-center justify-center p-4">
+                              <Image
+                                src={testimonial.photo || "/placeholder.svg"}
+                                alt={`Отзыв ${testimonial.id}`}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                className="w-auto h-auto max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-105"
+                              />
+                            </div>
                             {/* Photo overlay gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
                             
@@ -99,8 +108,8 @@ export function TestimonialsSection() {
                     </CarouselItem>
                   ))}
                 </CarouselContent>
-                <CarouselPrevious className="flex left-0 md:-left-12 bg-black/60 backdrop-blur-sm border-white/20 text-white hover:bg-white/80 hover:border-white/50 hover:text-black transition-all w-10 h-10 md:w-12 md:h-12" />
-                <CarouselNext className="flex right-0 md:-right-12 bg-black/60 backdrop-blur-sm border-white/20 text-white hover:bg-white/80 hover:border-white/50 hover:text-black transition-all w-10 h-10 md:w-12 md:h-12" />
+                <CarouselPrevious className={`flex left-0 md:-left-12 bg-black/60 backdrop-blur-sm border-white/20 text-white hover:bg-white/80 hover:border-white/50 hover:text-black transition-all w-10 h-10 md:w-12 md:h-12 ${testimonials.length <= 3 ? 'hidden' : ''}`} />
+                <CarouselNext className={`flex right-0 md:-right-12 bg-black/60 backdrop-blur-sm border-white/20 text-white hover:bg-white/80 hover:border-white/50 hover:text-black transition-all w-10 h-10 md:w-12 md:h-12 ${testimonials.length <= 3 ? 'hidden' : ''}`} />
               </Carousel>
             </div>
           </ScrollFade>
