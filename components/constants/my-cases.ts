@@ -74,7 +74,7 @@ export const projects = [
             "https://i.imgur.com/4SNYszl.png",
             "https://i.imgur.com/nFptiX2.png",
         ],
-        link: "https://lider-gym.vercel.app/about/gallery",
+        link: "https://lider-gym.vercel.app",
         duration: "1 день",
         layout: false,
     },
