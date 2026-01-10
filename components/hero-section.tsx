@@ -15,21 +15,21 @@ export function HeroSection() {
     const logoTimer = setTimeout(() => {
       setLogoVisible(true)
     }, 300)
-    
+
     // Текст появляется быстрее после логотипа
     const textTimer = setTimeout(() => {
       setTextVisible(true)
     }, 1000)
-    
+
     // Остальные элементы появляются позже
     const visibilityTimer = setTimeout(() => {
       setIsVisible(true)
     }, 1600)
-    
+
     const typingTimer = setTimeout(() => {
       setTypingComplete(true)
     }, 4000)
-    
+
     return () => {
       clearTimeout(logoTimer)
       clearTimeout(textTimer)
@@ -59,17 +59,15 @@ export function HeroSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto text-center">
         <div
-          className={`flex justify-center mb-8 md:mb-10 transition-all duration-2000 ease-out ${
-            logoVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
-          }`}
+          className={`flex justify-center mb-8 md:mb-10 transition-all duration-2000 ease-out ${logoVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"
+            }`}
         >
           <img src="/logo.png" alt="Menshikov Studio" width={400} className="md:w-[600px] w-[400px]" />
         </div>
 
         <h1
-          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-10 md:mb-12 leading-tight transition-all duration-1500 ease-out ${
-            textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
+          className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-6 md:mb-8 leading-tight transition-all duration-1500 ease-out ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
         >
           <span
             className={`block ${!typingComplete
@@ -78,9 +76,16 @@ export function HeroSection() {
               }`}
             style={!typingComplete ? { width: "fit-content", margin: "0 auto" } : {}}
           >
-            Создаём Digital Будущее
+            Увеличиваем продажи на 300%
+          </span>
+          <span className="block text-lg md:text-xl text-white/80 mt-4 font-normal">
+            с помощью современных сайтов и Telegram Mini Apps
           </span>
         </h1>
+
+        <p className={`text-base md:text-lg text-white/70 mb-8 md:mb-10 max-w-2xl mx-auto transition-all duration-1500 ease-out delay-300 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          Пока ваши конкуренты теряют клиентов из-за устаревших сайтов, мы создаем продающие решения, которые работают 24/7
+        </p>
 
         {/* CTA Buttons */}
         <div
@@ -90,7 +95,7 @@ export function HeroSection() {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-white text-black hover:bg-white hover:text-black text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full font-semibold group transition-all duration-300 cursor-pointer"
-            onClick={() => window.open('https://t.me/mnshkv_studio', '_blank')}
+            onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
           >
             Начать проект
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -110,8 +115,8 @@ export function HeroSection() {
             }`}
         >
           {[
-            { value: "100%", label: "Качество" },
-            { value: "24/7", label: "Поддержка" },
+            { value: "1-3", label: "Дня на разработку" },
+            { value: "300%", label: "Рост продаж" },
           ].map((stat, index) => (
             <div key={index} className="glass-effect p-4 md:p-6 rounded-xl md:rounded-2xl">
               <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-white glow-text mb-1 md:mb-2">
@@ -124,10 +129,9 @@ export function HeroSection() {
       </div>
 
       {/* Animated scroll arrow */}
-      <div 
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-500 ${
-          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-        }`}
+      <div
+        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+          }`}
       >
         <button
           onClick={scrollToServices}

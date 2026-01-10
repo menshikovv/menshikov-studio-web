@@ -1,7 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Unbounded } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
 const unbounded = Unbounded({
@@ -82,7 +81,6 @@ export default function RootLayout({
       </head>
       <body className={`${unbounded.className} font-sans antialiased`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )

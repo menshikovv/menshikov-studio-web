@@ -80,9 +80,19 @@ export function PortfolioSection() {
                 <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">кейсы</span>
               </AnimatedUnderline>
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto px-4">
-              Проекты, которыми мы гордимся. <br />Реальные результаты для реальных бизнесов.
+            <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto px-4 mb-6">
+              Проекты, которыми мы гордимся
             </p>
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-white/60">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span>Все проекты сданы в срок</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span>100% довольных клиентов</span>
+              </div>
+            </div>
           </div>
         </ScrollFade>
 
@@ -127,109 +137,111 @@ export function PortfolioSection() {
         {/* Project grid */}
         <ScrollFade delay={200}>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
-            {filteredProjects.map((project) => (
-              <div key={project.id} className="group relative h-full flex">
-                {/* Glass card */}
-                <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] flex flex-col w-full">
-                  {project.layout && (
-                    <div className="absolute top-0 right-0 bg-gradient-to-br from-orange-500 to-orange-600 text-white text-sm font-bold px-4 md:px-6 py-2 md:py-3 rounded-bl-3xl z-10">
-                      МАКЕТ
-                    </div>
-                  )}
-                  {/* Project image */}
-                  <div
-                    className="relative h-64 md:h-80 overflow-hidden flex-shrink-0 group/image cursor-pointer"
-                    onClick={() => openFullscreen(project)}
-                  >
-                    {/* Blurred background */}
-                    <Image
-                      src={project.images?.[currentImageIndex[project.id] || 0] || "/placeholder.svg"}
-                      alt={`${project.title} background`}
-                      fill
-                      className="object-cover blur-md scale-110"
-                    />
-                    {/* Main image centered */}
-                    <div className="absolute inset-0 flex items-start justify-center p-4">
+            {filteredProjects.map((project, index) => (
+              <ScrollFade key={project.id} delay={200 + index * 50}>
+                <div className="group relative h-full flex">
+                  {/* Glass card */}
+                  <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] flex flex-col w-full">
+                    {project.layout && (
+                      <div className="absolute top-0 right-0 bg-gradient-to-br from-orange-500 to-orange-600 text-white text-sm font-bold px-4 md:px-6 py-2 md:py-3 rounded-bl-3xl z-10">
+                        МАКЕТ
+                      </div>
+                    )}
+                    {/* Project image */}
+                    <div
+                      className="relative h-64 md:h-80 overflow-hidden flex-shrink-0 group/image cursor-pointer"
+                      onClick={() => openFullscreen(project)}
+                    >
+                      {/* Blurred background */}
                       <Image
                         src={project.images?.[currentImageIndex[project.id] || 0] || "/placeholder.svg"}
-                        alt={project.title}
-                        width={0}
-                        height={0}
-                        sizes="100vw"
-                        className="w-auto h-auto max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                        alt={`${project.title} background`}
+                        fill
+                        className="object-cover blur-md scale-110"
                       />
-                    </div>
-
-                    {/* Navigation arrows - only show if multiple images */}
-                    {project.images && project.images.length > 1 && (
-                      <>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            prevImage(project.id, project.images!.length)
-                          }}
-                          className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
-                        >
-                          <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
-                        </button>
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation()
-                            nextImage(project.id, project.images!.length)
-                          }}
-                          className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
-                        >
-                          <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
-                        </button>
-
-                        {/* Image counter */}
-                        <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs transition-opacity duration-300 z-20">
-                          {(currentImageIndex[project.id] || 0) + 1} / {project.images.length}
-                        </div>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Project info */}
-                  <div className="p-6 md:p-8 flex flex-col flex-grow">
-                    <div className="flex items-start justify-between mb-4 gap-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-white transition-colors duration-300 line-clamp-2 min-h-[3.5rem] md:min-h-[4rem]">
-                        {project.title}
-                      </h3>
-                      <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center flex-shrink-0">
-                        {project.category === "website" ? (
-                          <Code2 className="w-5 h-5 text-white" />
-                        ) : project.category === "bot" ? (
-                          <Bot className="w-5 h-5 text-white" />
-                        ) : (
-                          <Smartphone className="w-5 h-5 text-white" />
-                        )}
+                      {/* Main image centered */}
+                      <div className="absolute inset-0 flex items-start justify-center p-4">
+                        <Image
+                          src={project.images?.[currentImageIndex[project.id] || 0] || "/placeholder.svg"}
+                          alt={project.title}
+                          width={0}
+                          height={0}
+                          sizes="100vw"
+                          className="w-auto h-auto max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-105"
+                        />
                       </div>
+
+                      {/* Navigation arrows - only show if multiple images */}
+                      {project.images && project.images.length > 1 && (
+                        <>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              prevImage(project.id, project.images!.length)
+                            }}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
+                          >
+                            <ChevronLeft className="w-4 h-4 md:w-5 md:h-5" />
+                          </button>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation()
+                              nextImage(project.id, project.images!.length)
+                            }}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/70 transition-all duration-300 z-20"
+                          >
+                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                          </button>
+
+                          {/* Image counter */}
+                          <div className="absolute bottom-2 right-2 bg-black/50 backdrop-blur-sm rounded-full px-2 py-1 text-white text-xs transition-opacity duration-300 z-20">
+                            {(currentImageIndex[project.id] || 0) + 1} / {project.images.length}
+                          </div>
+                        </>
+                      )}
                     </div>
 
-                    <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed line-clamp-3 min-h-[4.5rem] md:min-h-[4.5rem]">
-                      {project.description}
-                    </p>
+                    {/* Project info */}
+                    <div className="p-6 md:p-8 flex flex-col flex-grow">
+                      <div className="flex items-start justify-between mb-4 gap-4">
+                        <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-white transition-colors duration-300 line-clamp-2 min-h-[3.5rem] md:min-h-[4rem]">
+                          {project.title}
+                        </h3>
+                        <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center flex-shrink-0">
+                          {project.category === "website" ? (
+                            <Code2 className="w-5 h-5 text-white" />
+                          ) : project.category === "bot" ? (
+                            <Bot className="w-5 h-5 text-white" />
+                          ) : (
+                            <Smartphone className="w-5 h-5 text-white" />
+                          )}
+                        </div>
+                      </div>
 
-                    {/* Duration */}
-                    <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-white/10">
-                      <span className="text-gray-500 text-xs md:text-sm">Срок разработки: </span>
-                      <span className="text-white font-medium text-xs md:text-sm">{project.duration}</span>
-                    </div>
+                      <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed line-clamp-3 min-h-[4.5rem] md:min-h-[4.5rem]">
+                        {project.description}
+                      </p>
 
-                    {/* View project button - moved here from hover overlay */}
-                    <div className="mt-auto">
-                      <button
-                        className="w-full px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-medium flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.6)] text-sm md:text-base hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] transition-all duration-300 cursor-pointer"
-                        onClick={() => window.open(project.link, '_blank')}
-                      >
-                        Смотреть проект
-                        <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                      </button>
+                      {/* Duration */}
+                      <div className="mb-4 md:mb-6 pb-4 md:pb-6 border-b border-white/10">
+                        <span className="text-gray-500 text-xs md:text-sm">Срок разработки: </span>
+                        <span className="text-white font-medium text-xs md:text-sm">{project.duration}</span>
+                      </div>
+
+                      {/* View project button - moved here from hover overlay */}
+                      <div className="mt-auto">
+                        <button
+                          className="w-full px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-medium flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(255,255,255,0.6)] text-sm md:text-base hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] transition-all duration-300 cursor-pointer"
+                          onClick={() => window.open(project.link, '_blank')}
+                        >
+                          Смотреть проект
+                          <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ScrollFade>
             ))}
           </div>
         </ScrollFade>

@@ -19,6 +19,7 @@ const services = [
     price: "от 6 500 ₽",
     priceDetails: "Срок: 1-3 дня",
     popular: false,
+    conversionRate: "до 20%",
   },
   {
     icon: Zap,
@@ -29,11 +30,12 @@ const services = [
       "Современный UI/UX дизайн",
       "Подключение платежных систем",
       "База данных и backend разработка",
-      "Аналитика и отслеживание метрик",
+      "Интеграция с Google Excel и т.д",
     ],
     price: "от 7 500 ₽",
     priceDetails: "Срок: 1-3 дня",
     popular: true,
+    conversionRate: "до 30%",
   },
   {
     icon: Layers,
@@ -48,6 +50,7 @@ const services = [
     price: "от 15 000₽",
     priceDetails: "Срок: 1-7 дней",
     popular: false,
+    conversionRate: "до 40%",
   },
 ]
 
@@ -96,26 +99,29 @@ export function ServicesSection() {
                     <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-white transition-colors h-8 md:h-9 flex items-center">
                       {service.title}
                     </h3>
-                    <p className="text-sm md:text-base text-muted-foreground mb-6 leading-relaxed line-clamp-2 h-10 md:h-12">
+                    <p className="text-sm md:text-base text-muted-foreground mb-6 leading-relaxed min-h-[3rem] md:min-h-[3.5rem]">
                       {service.description}
                     </p>
                   </div>
 
-                  <div className="mb-6 md:mb-8 h-16 md:h-20">
+                  <div className="mb-6 md:mb-8 h-20 md:h-24">
                     <div className="flex items-baseline gap-2 mb-2">
                       <span className="text-3xl md:text-4xl font-bold text-white">{service.price}</span>
                     </div>
-                    <p className="text-xs md:text-sm text-muted-foreground">{service.priceDetails}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground mb-1">{service.priceDetails}</p>
+                    <div className="flex items-center gap-4 text-xs text-green-400">
+                      <span>✓ Конверсия {service.conversionRate}</span>
+                    </div>
                   </div>
 
-                  <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 flex-grow">
+                  <ul className="space-y-2 md:space-y-3 mb-6 md:mb-8 flex-grow min-h-[8rem] md:min-h-[10rem]">
                     {service.features.map((feature, idx) => (
                       <li
                         key={idx}
                         className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-muted-foreground"
                       >
                         <Check className="w-4 h-4 md:w-5 md:h-5 text-white flex-shrink-0 mt-0.5" />
-                        <span className="line-clamp-1">{feature}</span>
+                        <span>{feature}</span>
                       </li>
                     ))}
                   </ul>
