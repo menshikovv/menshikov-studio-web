@@ -16,6 +16,9 @@ export function ScrollFade({ children, className = "", delay = 0 }: ScrollFadePr
   useEffect(() => {
     const element = elementRef.current
 
+    // Определяем, мобильное ли устройство
+    const isMobile = window.innerWidth < 768
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -26,7 +29,10 @@ export function ScrollFade({ children, className = "", delay = 0 }: ScrollFadePr
           }
         })
       },
-      { threshold: 0.1 },
+      { 
+        threshold: isMobile ? 0.05 : 0.1, // Меньший порог для мобилки
+        rootMargin: isMobile ? "50px 0px" : "20px 0px" // Больший отступ для мобилки
+      },
     )
 
     if (element) {
@@ -43,7 +49,7 @@ export function ScrollFade({ children, className = "", delay = 0 }: ScrollFadePr
   return (
     <div
       ref={elementRef}
-      className={`transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"} ${className}`}
+      className={`transition-all duration-500 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"} ${className}`}
     >
       {children}
     </div>

@@ -44,7 +44,7 @@ export function GuaranteesSection() {
           {guarantees.slice(0, 2).map((guarantee, index) => {
             const Icon = guarantee.icon
             return (
-              <ScrollFade key={index} delay={index * 100}>
+              <ScrollFade key={index} delay={index * 50}>
                 <div className="glass-effect p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group h-full">
                   <div className="flex items-start gap-4 h-full">
                     <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -69,7 +69,7 @@ export function GuaranteesSection() {
         {guarantees.slice(2).map((guarantee, index) => {
           const Icon = guarantee.icon
           return (
-            <ScrollFade key={index + 2} delay={(index + 2) * 100}>
+            <ScrollFade key={index + 2} delay={100}>
               <div className="glass-effect p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] group">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-white/20 to-white/10 border border-white/20 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">

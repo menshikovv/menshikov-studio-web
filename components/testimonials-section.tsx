@@ -54,7 +54,7 @@ export function TestimonialsSection() {
           </ScrollFade>
 
           {/* Carousel */}
-          <ScrollFade delay={100}>
+          <ScrollFade delay={50}>
             <div className="relative px-4 md:px-16">
               <Carousel
                 opts={{
@@ -116,7 +116,7 @@ export function TestimonialsSection() {
           </ScrollFade>
 
           {/* Bottom CTA */}
-          <ScrollFade delay={200}>
+          <ScrollFade delay={100}>
             <div className="text-center mt-12 md:mt-16 px-4">
               <a
                 href='https://t.me/menshreviews'

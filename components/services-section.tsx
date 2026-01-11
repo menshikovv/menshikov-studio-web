@@ -75,7 +75,7 @@ export function ServicesSection() {
           </div>
         </ScrollFade>
 
-        <ScrollFade delay={100}>
+        <ScrollFade delay={50}>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service, index) => {
               const Icon = service.icon
@@ -144,7 +144,7 @@ export function ServicesSection() {
           </div>
         </ScrollFade>
 
-        <ScrollFade delay={200}>
+        <ScrollFade delay={100}>
           <div className="text-center mt-12 md:mt-16 px-4">
             <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6 text-pretty">
               Не нашли подходящий вариант? Мы создадим индивидуальное решение под ваши задачи

@@ -135,10 +135,10 @@ export function PortfolioSection() {
         </ScrollFade> */}
 
         {/* Project grid */}
-        <ScrollFade delay={200}>
+        <ScrollFade delay={100}>
           <div className="grid md:grid-cols-2 gap-6 md:gap-8">
             {filteredProjects.map((project, index) => (
-              <ScrollFade key={project.id} delay={200 + index * 50}>
+              <ScrollFade key={project.id} delay={100 + index * 30}>
                 <div className="group relative h-full flex">
                   {/* Glass card */}
                   <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/50 transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,255,255,0.2)] flex flex-col w-full">
@@ -247,7 +247,7 @@ export function PortfolioSection() {
         </ScrollFade>
 
         {/* Call to action */}
-        <ScrollFade delay={300}>
+        <ScrollFade delay={150}>
           <div className="text-center mt-12 md:mt-16 px-4">
             <p className="text-base md:text-lg text-gray-400 mb-4 md:mb-6">Хотите увидеть больше наших работ?</p>
             <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white font-medium hover:border-white/50 hover:bg-gradient-to-r hover:from-white hover:to-gray-200 hover:text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] text-sm md:text-base" onClick={() => window.open('https://t.me/menshcases', '_blank')}>

@@ -43,7 +43,7 @@ export function ProblemsSolutionsSection() {
 
         <div className="grid gap-6 md:gap-8 mb-12 md:mb-16">
           {problems.map((item, index) => (
-            <ScrollFade key={index} delay={index * 100}>
+            <ScrollFade key={index} delay={index * 50}>
               <div className="glass-effect p-6 md:p-8 rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500">
                 <div className="grid md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-center">
                   {/* Problem */}
@@ -86,7 +86,7 @@ export function ProblemsSolutionsSection() {
           ))}
         </div>
 
-        <ScrollFade delay={400}>
+        <ScrollFade delay={200}>
           <div className="text-center">
             <Button
               size="lg"
