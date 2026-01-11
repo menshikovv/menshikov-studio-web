@@ -69,13 +69,7 @@ export function HeroSection() {
           className={`text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mb-6 md:mb-8 leading-tight transition-all duration-1500 ease-out ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
         >
-          <span
-            className={`block ${!typingComplete
-              ? "text-white/70 animate-typing overflow-hidden whitespace-nowrap border-r-4 border-white/70 cursor-pointer"
-              : "bg-gradient-to-r from-white/50 via-white to-white/50 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent cursor-pointer"
-              }`}
-            style={!typingComplete ? { width: "fit-content", margin: "0 auto" } : {}}
-          >
+          <span className="block bg-gradient-to-r from-white/50 via-white to-white/50 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent cursor-pointer">
             Увеличиваем продажи на 300%
           </span>
           <span className="block text-lg md:text-xl text-white/80 mt-4 font-normal">
@@ -83,7 +77,7 @@ export function HeroSection() {
           </span>
         </h1>
 
-        <p className={`text-base md:text-lg text-white/70 mb-8 md:mb-10 max-w-2xl mx-auto transition-all duration-1500 ease-out delay-300 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <p className={`hidden md:block text-base md:text-lg text-white/70 mb-8 md:mb-10 max-w-2xl mx-auto transition-all duration-1500 ease-out delay-300 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           Пока ваши конкуренты теряют клиентов из-за устаревших сайтов, мы создаем продающие решения, которые работают 24/7
         </p>
 
