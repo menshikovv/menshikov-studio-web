@@ -1,5 +1,54 @@
 export const projects = [
     {
+        id: 0,
+        title: 'Mentup.Ru',
+        description: "MentUp предоставляет возможность купить аккаунт стим и других игровых услуг в магазине игровых товаров.",
+        category: "website",
+        images: [
+            "https://i.imgur.com/wrc3Cv5.png",
+            "https://i.imgur.com/pArYDlo.png",
+            "https://i.imgur.com/VsN8pGk.png",
+            "https://i.imgur.com/gPvmwHb.png",
+            "https://i.imgur.com/LFZHd2p.png"
+        ],
+        link: "https://mentup.ru",
+        duration: "5-6 месяцев",
+        layout: false,
+    },
+    {
+        id: 123,
+        title: 'News.Mentup.Ru',
+        description: "Актуальные новости киберспорта, турниров, аналитика игр и события игровой индустрии",
+        category: "website",
+        images: [
+            "https://i.imgur.com/s6pXTdr.png",
+            "https://i.imgur.com/w3EgM4Q.png",
+            "https://i.imgur.com/T21QPgq.png",
+            "https://i.imgur.com/7xiPprs.png",
+            "https://i.imgur.com/7hsq5zA.png"
+        ],
+        link: "https://news.mentup.ru",
+        duration: "1 месяц",
+        layout: false,
+    },
+    {
+        id: 228,
+        title: 'Hotel-Ring.Ru',
+        description: "Сайт для бронирования отеля в Волгограде",
+        category: "website",
+        images: [
+            "https://i.imgur.com/GOODpLZ.png",
+            "https://i.imgur.com/7Tmim9M.png",
+            "https://i.imgur.com/Aqb4CIT.png",
+            "https://i.imgur.com/9KlXiqM.png",
+            "https://i.imgur.com/YKmPxSc.png",
+            "https://i.imgur.com/FZvqzrz.png"
+        ],
+        link: "https://hotel-ring.ru",
+        duration: "8 дней",
+        layout: false,
+    },
+    {
         id: 1,
         title: 'Telegram Mini App "PROPAGANDA AGENCY"',
         description: "Мини-приложение для медиа-агентства",
@@ -80,7 +129,7 @@ export const projects = [
     },
     {
         id: 5,
-        title: 'Telegram Mini Apps "Premium Brand"',
+        title: 'Telegram Mini App "Premium Brand"',
         description: "Мини-приложение для онлайн-магазина: дизайн, каталог товаров, интеграция с Google Excel",
         category: "telegram",
         images: [
@@ -96,7 +145,7 @@ export const projects = [
     },
     {
         id: 6,
-        title: 'Telegram Mini Apps "Получить разбор на эфире"',
+        title: 'Telegram Mini App "Получить разбор на эфире"',
         description: "Мини-приложение для оставление заявки для разбора на эфире + интеграция с Google Excel",
         category: "telegram",
         images: [
@@ -113,7 +162,7 @@ export const projects = [
     },
     {
         id: 7,
-        title: 'Telegram Mini Apps "Получить разбор на эфире" 2',
+        title: 'Telegram Mini App "Получить разбор на эфире" 2',
         description: "Мини-приложение для оставление заявки для разбора на эфире + интеграция с Google Excel",
         category: "telegram",
         images: [
@@ -130,7 +179,7 @@ export const projects = [
     },
     {
         id: 8,
-        title: 'Telegram Mini Apps "Егор Настоящий"',
+        title: 'Telegram Mini App "Егор Настоящий"',
         description: "Мини-приложение для своего блога и продажи инфопродукта",
         category: "telegram",
         images: [
@@ -149,7 +198,7 @@ export const projects = [
     },
     {
         id: 9,
-        title: 'Telegram Mini Apps "DAIREN. COMMUNITY"',
+        title: 'Telegram Mini App "DAIREN. COMMUNITY"',
         description: "Мини-приложение для продажи инфопродукта",
         category: "telegram",
         images: [

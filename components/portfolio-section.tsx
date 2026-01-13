@@ -8,8 +8,13 @@ import { AnimatedUnderline } from "@/components/animated-underline"
 import { projects } from "./constants/my-cases"
 
 export function PortfolioSection() {
-  // Показываем все проекты независимо от фильтра
-  const filteredProjects = projects
+  // Состояние для активного фильтра
+  const [activeFilter, setActiveFilter] = useState<"all" | "website" | "telegram" | "bot">("all")
+  
+  // Фильтрация проектов
+  const filteredProjects = activeFilter === "all" 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter)
 
   // Состояние для текущего изображения каждого проекта
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({})
@@ -96,43 +101,69 @@ export function PortfolioSection() {
           </div>
         </ScrollFade>
 
-        {/* Filter buttons */}
-        {/* <ScrollFade delay={100}>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-12 md:mb-16">
+        {/* Filter tabs */}
+        <ScrollFade delay={50}>
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 md:mb-16 px-4">
             <button
               onClick={() => setActiveFilter("all")}
-              className={`px-6 md:px-8 py-3 md:py-4 rounded-2xl font-medium transition-all duration-300 text-sm md:text-base ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 text-sm md:text-base relative overflow-hidden group focus:outline-none ${
                 activeFilter === "all"
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/50 hover:text-white"
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
             >
-              Все проекты
+              <span className="relative z-10">Все проекты</span>
+              {activeFilter !== "all" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
             </button>
+            
             <button
               onClick={() => setActiveFilter("website")}
-              className={`px-6 md:px-8 py-3 md:py-4 rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none ${
                 activeFilter === "website"
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/50 hover:text-white"
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
             >
               <Code2 className="w-4 h-4 md:w-5 md:h-5" />
-              Веб-сайты
+              <span className="relative z-10">Сайты</span>
+              {activeFilter !== "website" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
             </button>
+            
             <button
               onClick={() => setActiveFilter("telegram")}
-              className={`px-6 md:px-8 py-3 md:py-4 rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base ${
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none ${
                 activeFilter === "telegram"
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/50 hover:text-white"
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
             >
               <Smartphone className="w-4 h-4 md:w-5 md:h-5" />
-              Telegram Mini Apps
+              <span className="relative z-10">Telegram Mini Apps</span>
+              {activeFilter !== "telegram" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
+            </button>
+            
+            <button
+              onClick={() => setActiveFilter("bot")}
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none ${
+                activeFilter === "bot"
+                  ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <Bot className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="relative z-10">Боты</span>
+              {activeFilter !== "bot" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
             </button>
           </div>
-        </ScrollFade> */}
+        </ScrollFade>
 
         {/* Project grid */}
         <ScrollFade delay={100}>
