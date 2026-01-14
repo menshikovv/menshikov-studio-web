@@ -72,9 +72,6 @@ export function HeroSection() {
           <span className="block bg-gradient-to-r from-white/50 via-white to-white/50 bg-[length:200%_auto] animate-gradient bg-clip-text text-transparent cursor-pointer">
             Увеличиваем продажи на 300%
           </span>
-          <span className="block text-lg md:text-xl text-white/80 mt-4 font-normal">
-            с помощью современных сайтов и Telegram Mini Apps
-          </span>
         </h1>
 
         <p className={`hidden md:block text-base md:text-lg text-white/70 mb-8 md:mb-10 max-w-2xl mx-auto transition-all duration-1500 ease-out delay-300 ${textVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
@@ -122,26 +119,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Animated scroll arrow */}
-      <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-1000 ease-out delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-      >
-        <button
-          onClick={scrollToServices}
-          className="group flex flex-col items-center gap-2 cursor-pointer hover:scale-110 transition-all duration-300 animate-float-down hover:animate-none"
-          aria-label="Прокрутить вниз"
-        >
-          <div className="text-white/60 text-sm font-medium group-hover:text-white transition-colors duration-300">
-            Листай вниз
-          </div>
-          <div className="relative flex flex-col">
-            <ChevronDown className="w-6 h-6 text-white/80 group-hover:text-white transition-colors duration-300" />
-            <ChevronDown className="w-6 h-6 text-white/40 -mt-3 animate-enhanced-bounce" />
-            <ChevronDown className="w-6 h-6 text-white/20 -mt-3" style={{ animationDelay: '0.3s' }} />
-          </div>
-        </button>
-      </div>
     </section>
   )
 }

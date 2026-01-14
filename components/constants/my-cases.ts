@@ -11,7 +11,7 @@ export const projects = [
             "https://i.imgur.com/gPvmwHb.png",
             "https://i.imgur.com/LFZHd2p.png"
         ],
-        link: "https://mentup.ru",
+        link: "https://mentup.ru/?utm_source=menshikov.agency",
         duration: "5-6 месяцев",
         layout: false,
     },
@@ -27,7 +27,23 @@ export const projects = [
             "https://i.imgur.com/7xiPprs.png",
             "https://i.imgur.com/7hsq5zA.png"
         ],
-        link: "https://news.mentup.ru",
+        link: "https://news.mentup.ru/?utm_source=menshikov.agency",
+        duration: "1 месяц",
+        layout: false,
+    },
+    {
+        id: 121213,
+        title: 'Дизайн сайта Fastbut365.By',
+        description: "Сайт для заказа бытовой химии в Беларусь и Россию",
+        category: "design",
+        images: [
+            "https://i.imgur.com/oyH856H.png",
+            "https://i.imgur.com/48Qm2Ka.png",
+            "https://i.imgur.com/N20TKR8.png",
+            "https://i.imgur.com/ds0ZOwg.png",
+            "https://i.imgur.com/0D9OZKR.png"
+        ],
+        link: "https://fastbuy365.by",
         duration: "1 месяц",
         layout: false,
     },
@@ -161,6 +177,22 @@ export const projects = [
         layout: false,
     },
     {
+        id: 61234,
+        title: 'Дизайн сайта Stomart.Ru',
+        description: "Сайт для продажи медицинского оборудования для стоматологов с доставкой по всей России",
+        category: "design",
+        images: [
+            "https://i.imgur.com/L4V3Ckb.png",
+            "https://i.imgur.com/PWdMv9P.png",
+            "https://i.imgur.com/NKZbZpV.png",
+            "https://i.imgur.com/sHeqs3L.png",
+            "https://i.imgur.com/nhXK5CN.png"
+        ],
+        link: "https://www.stomart.ru",
+        duration: "< 1 день",
+        layout: false,
+    },
+    {
         id: 7,
         title: 'Telegram Mini App "Получить разбор на эфире" 2',
         description: "Мини-приложение для оставление заявки для разбора на эфире + интеграция с Google Excel",
@@ -175,6 +207,38 @@ export const projects = [
         ],
         link: "https://t.me/villagi0_bot/bot",
         duration: "< 1 день",
+        layout: false,
+    },
+    {
+        id: 81234,
+        title: 'Дизайн сайта Mentup.Ru',
+        description: "MentUp предоставляет возможность купить аккаунт стим и других игровых услуг в магазине игровых товаров.",
+        category: "design",
+        images: [
+            "https://i.imgur.com/wrc3Cv5.png",
+            "https://i.imgur.com/pArYDlo.png",
+            "https://i.imgur.com/VsN8pGk.png",
+            "https://i.imgur.com/gPvmwHb.png",
+            "https://i.imgur.com/LFZHd2p.png"
+        ],
+        link: "https://mentup.ru/?utm_source=menshikov.agency",
+        duration: "1 день",
+        layout: false,
+    },
+    {
+        id: 12123,
+        title: 'Дизайн сайта News.Mentup.Ru',
+        description: "Актуальные новости киберспорта, турниров, аналитика игр и события игровой индустрии",
+        category: "design",
+        images: [
+            "https://i.imgur.com/s6pXTdr.png",
+            "https://i.imgur.com/w3EgM4Q.png",
+            "https://i.imgur.com/T21QPgq.png",
+            "https://i.imgur.com/7xiPprs.png",
+            "https://i.imgur.com/7hsq5zA.png"
+        ],
+        link: "https://news.mentup.ru/?utm_source=menshikov.agency",
+        duration: "1 месяц",
         layout: false,
     },
     {

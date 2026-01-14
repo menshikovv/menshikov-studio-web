@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Sparkles, Zap, Layers, Check } from "lucide-react"
+import { Sparkles, Zap, Layers, Check, Palette } from "lucide-react"
 import { ScrollFade } from "@/components/scroll-fade"
 
 const services = [
@@ -36,6 +36,21 @@ const services = [
     priceDetails: "Срок: 1-3 дня",
     popular: true,
     conversionRate: "до 30%",
+  },
+  {
+    icon: Palette,
+    title: "Дизайн сайта",
+    description: "Профессиональный UI/UX дизайн для веб-сайтов с современным подходом",
+    features: [
+      "Уникальный дизайн под ваш бренд",
+      "Адаптивная верстка для всех устройств",
+      "Современные тренды и лучшие практики",
+      "Готовые макеты в Figma",
+    ],
+    price: "от 5 000 ₽",
+    priceDetails: "Срок: индивидуально",
+    popular: false,
+    conversionRate: "до 40%",
   },
   {
     icon: Layers,
@@ -82,9 +97,8 @@ export function ServicesSection() {
               return (
                 <Card
                   key={index}
-                  className={`glass-effect p-6 md:p-8 hover:bg-white/5 transition-all duration-500 group cursor-pointer relative overflow-hidden flex flex-col h-full ${
-                    service.popular ? "border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.3)]" : ""
-                  }`}
+                  className={`glass-effect p-6 md:p-8 hover:bg-white/5 transition-all duration-500 group cursor-pointer relative overflow-hidden flex flex-col h-full ${service.popular ? "border-white/50 shadow-[0_0_30px_rgba(255,255,255,0.3)]" : ""
+                    }`}
                 >
                   {service.popular && (
                     <div className="absolute top-0 right-0 bg-gradient-to-br from-white to-gray-200 text-black text-xs font-bold px-3 md:px-4 py-1.5 md:py-2 rounded-bl-2xl">
@@ -128,13 +142,11 @@ export function ServicesSection() {
 
                   <Button
                     onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
-                    className={`w-full cursor-pointer ${
-                      service.popular
-                        ? "bg-gradient-to-r from-white to-gray-200 text-black hover:from-gray-100 hover:to-gray-300"
-                        : "bg-white/10 hover:bg-white/20"
-                    } ${
-                      service.popular ? "text-black" : "text-white"
-                    } font-semibold py-5 md:py-6 transition-all duration-300 group-hover:scale-105`}
+                    className={`w-full cursor-pointer ${service.popular
+                      ? "bg-gradient-to-r from-white to-gray-200 text-black hover:from-gray-100 hover:to-gray-300"
+                      : "bg-white/10 hover:bg-white/20"
+                      } ${service.popular ? "text-black" : "text-white"
+                      } font-semibold py-5 md:py-6 transition-all duration-300 group-hover:scale-105`}
                   >
                     Заказать проект
                   </Button>
@@ -152,6 +164,7 @@ export function ServicesSection() {
             <Button
               variant="outline"
               className="w-full sm:w-auto border-white/50 text-white cursor-pointer"
+              onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
             >
               Обсудить индивидуальный проект
             </Button>
