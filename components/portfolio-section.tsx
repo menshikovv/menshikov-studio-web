@@ -281,7 +281,7 @@ export function PortfolioSection() {
         <ScrollFade delay={150}>
           <div className="text-center mt-12 md:mt-16 px-4">
             <p className="text-base md:text-lg text-gray-400 mb-4 md:mb-6">Хотите увидеть больше наших работ?</p>
-            <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white font-medium hover:border-white/50 hover:bg-gradient-to-r hover:from-white hover:to-gray-200 hover:text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] text-sm md:text-base" onClick={() => window.open('https://t.me/menshcases', '_blank')}>
+            <button className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 text-white font-medium hover:border-white/50 hover:bg-gradient-to-r hover:from-white hover:to-gray-200 hover:text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] text-sm md:text-base" onClick={() => window.open('https://t.me/mnshkv_cases', '_blank')}>
               Смотреть полное портфолио
             </button>
           </div>

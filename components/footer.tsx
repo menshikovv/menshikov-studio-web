@@ -87,7 +87,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://t.me/menshcases"
+                  href="https://t.me/mnshkv_cases"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/70 hover:text-white transition-colors"
@@ -97,7 +97,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://t.me/menshreviews"
+                  href="https://t.me/mnshkv_reviews"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/70 hover:text-white transition-colors"
