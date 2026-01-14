@@ -63,7 +63,7 @@ const services = [
       "Приоритетная техподдержка 90 дней",
     ],
     price: "от 15 000₽",
-    priceDetails: "Срок: 1-7 дней",
+    priceDetails: "Срок: индивидуально",
     popular: false,
     conversionRate: "до 40%",
   },
@@ -82,7 +82,7 @@ export function ServicesSection() {
         <ScrollFade>
           <div className="text-center mb-12 md:mb-20">
             <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white glow-text mb-4 md:mb-6 text-balance">
-              Наши услуги
+              Прайс
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto text-pretty px-4">
               Выберите готовое решение или закажите индивидуальный проект

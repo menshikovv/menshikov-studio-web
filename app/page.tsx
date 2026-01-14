@@ -1,5 +1,7 @@
 import { HeroSection } from "@/components/hero-section"
 import { ProblemsSolutionsSection } from "@/components/problems-solutions-section"
+import { ServicesOverviewSection } from "@/components/services-overview-section"
+import { ClientsSection } from "@/components/clients-section"
 import { PortfolioSection } from "@/components/portfolio-section"
 import { TestimonialsSection } from "@/components/testimonials-section"
 import { GuaranteesSection } from "@/components/guarantees-section"
@@ -12,6 +14,8 @@ export default function Home() {
     <main className="min-h-screen bg-black overflow-hidden">
       <HeroSection />
       <ProblemsSolutionsSection />
+      <ServicesOverviewSection />
+      <ClientsSection />
       <PortfolioSection />
       <TestimonialsSection />
       <GuaranteesSection />

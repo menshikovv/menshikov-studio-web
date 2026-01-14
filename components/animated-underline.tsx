@@ -5,9 +5,11 @@ import { useEffect, useRef, useState } from "react"
 
 interface AnimatedUnderlineProps {
   children: React.ReactNode
+  gradientFrom?: string
+  gradientTo?: string
 }
 
-export function AnimatedUnderline({ children }: AnimatedUnderlineProps) {
+export function AnimatedUnderline({ children, gradientFrom = "white", gradientTo = "gray-300" }: AnimatedUnderlineProps) {
   const [isVisible, setIsVisible] = useState(false)
   const ref = useRef<HTMLSpanElement>(null)
 
@@ -40,7 +42,7 @@ export function AnimatedUnderline({ children }: AnimatedUnderlineProps) {
     <span ref={ref} className="relative inline-block">
       {children}
       <span
-        className={`absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-white to-gray-300 rounded-full transition-all duration-[1800ms] ease-out ${
+        className={`absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-${gradientFrom} to-${gradientTo} rounded-full transition-all duration-[1800ms] ease-out ${
           isVisible ? "w-full" : "w-0"
         }`}
       />
