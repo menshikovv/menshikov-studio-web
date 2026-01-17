@@ -32,6 +32,25 @@ export const projects = [
         layout: false,
     },
     {
+        id: 12123213,
+        title: 'Twizz-Project.Ru',
+        description: "Разработка ПО для киберспортивных команд + интеграция с EmailJS и Google Analytics 4",
+        category: "website",
+        images: [
+            "https://i.imgur.com/RuxaO7N.png",
+            "https://i.imgur.com/AmwWQz1.png",
+            "https://i.imgur.com/nLJSc9y.png",
+            "https://i.imgur.com/yWKDqIz.png",
+            "https://i.imgur.com/ZaI9L0e.png",
+            "https://i.imgur.com/Ob7ER6N.png",
+            "https://i.imgur.com/NvDaEat.png",
+            "https://i.imgur.com/2dt7uvp.png"
+        ],
+        link: "https://twizz-project.ru",
+        duration: "1 день",
+        layout: false,
+    },
+    {
         id: 121213,
         title: 'Дизайн сайта Fastbut365.By',
         description: "Сайт для заказа бытовой химии в Беларусь и Россию",
@@ -44,7 +63,7 @@ export const projects = [
             "https://i.imgur.com/0D9OZKR.png"
         ],
         link: "https://fastbuy365.by",
-        duration: "1 месяц",
+        duration: "10 дней",
         layout: false,
     },
     {
@@ -189,7 +208,7 @@ export const projects = [
             "https://i.imgur.com/nhXK5CN.png"
         ],
         link: "https://www.stomart.ru",
-        duration: "< 1 день",
+        duration: "2 недели",
         layout: false,
     },
     {
@@ -222,7 +241,7 @@ export const projects = [
             "https://i.imgur.com/LFZHd2p.png"
         ],
         link: "https://mentup.ru/?utm_source=menshikov.agency",
-        duration: "1 день",
+        duration: "13 дней",
         layout: false,
     },
     {
@@ -238,7 +257,7 @@ export const projects = [
             "https://i.imgur.com/7hsq5zA.png"
         ],
         link: "https://news.mentup.ru/?utm_source=menshikov.agency",
-        duration: "1 месяц",
+        duration: "6 дней",
         layout: false,
     },
     {
