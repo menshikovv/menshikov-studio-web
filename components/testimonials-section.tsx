@@ -120,6 +120,8 @@ export function TestimonialsSection() {
             <div className="text-center mt-12 md:mt-16 px-4">
               <a
                 href='https://t.me/mnshkv_reviews'
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block px-6 md:px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-white to-gray-200 text-black font-semibold hover:shadow-[0_0_40px_rgba(255,255,255,0.5)] transition-all duration-300 hover:scale-105"
               >
                 Все отзывы

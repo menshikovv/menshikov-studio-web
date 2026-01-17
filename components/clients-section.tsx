@@ -25,9 +25,9 @@ const clients = [
   },
   {
     id: 4,
-    name: "Hotel Ring",
-    logo: "https://hotel-ring.ru/app/uploads/2019/04/cropped-%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8-1-2-1-270x270.jpg",
-    url: "https://hotel-ring.ru"
+    name: "MentUp",
+    logo: "https://news.mentup.ru/logo.svg",
+    url: "https://mentup.ru"
   }
 ]
 
@@ -75,14 +75,17 @@ export function ClientsSection() {
                         alt={`${client.name} logo`}
                         width={120}
                         height={120}
-                        className="w-auto h-auto max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110"
+                        className={`w-auto h-auto max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-all duration-300 ${client.id === 4
+                            ? 'scale-150 group-hover:scale-[1.65]'
+                            : 'group-hover:scale-110'
+                          }`}
                       />
                     </div>
-                    
+
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl md:rounded-3xl" />
                   </div>
-                  
+
                   {/* Client name - visible on hover */}
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <div className="bg-black/80 backdrop-blur-md rounded-lg px-3 py-1 text-white text-sm font-medium whitespace-nowrap">
