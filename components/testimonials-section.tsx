@@ -10,7 +10,8 @@ const testimonials = [
   { id: 1, photo: "https://i.imgur.com/oASsSLO.png" },
   { id: 2, photo: "https://i.imgur.com/H5h94v5.png" },
   { id: 3, photo: "https://i.imgur.com/U9pjBpK.png" },
-  { id: 4, photo: "https://i.imgur.com/EVA4kRV.png" }
+  { id: 4, photo: "https://i.imgur.com/EVA4kRV.png" },
+  { id: 5, photo: "https://i.imgur.com/WGekV5o.png" }
 ]
 
 export function TestimonialsSection() {
