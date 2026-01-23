@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { Code2, Smartphone, ArrowRight, Bot, ChevronLeft, ChevronRight, X, Palette } from "lucide-react"
+import { Code2, Smartphone, ArrowRight, Bot, ChevronLeft, ChevronRight, X, Palette, Search } from "lucide-react"
 import { useState } from "react"
 import { ScrollFade } from "@/components/scroll-fade"
 import { AnimatedUnderline } from "@/components/animated-underline"
@@ -9,12 +9,18 @@ import { projects } from "./constants/my-cases"
 
 export function PortfolioSection() {
   // Состояние для активного фильтра
-  const [activeFilter, setActiveFilter] = useState<"all" | "website" | "telegram" | "bot" | "design">("all")
+  const [activeFilter, setActiveFilter] = useState<"all" | "development" | "design" | "seo">("all")
   
   // Фильтрация проектов
   const filteredProjects = activeFilter === "all" 
     ? projects 
-    : projects.filter(project => project.category === activeFilter)
+    : activeFilter === "development"
+    ? projects.filter(project => project.category === "website" || project.category === "telegram" || project.category === "bot")
+    : activeFilter === "design"
+    ? projects.filter(project => project.category === "design")
+    : activeFilter === "seo"
+    ? [] // Пока нет SEO проектов
+    : projects
 
   // Состояние для текущего изображения каждого проекта
   const [currentImageIndex, setCurrentImageIndex] = useState<{ [key: number]: number }>({})
@@ -111,10 +117,6 @@ export function PortfolioSection() {
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                   : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
-              style={{
-                color: activeFilter === "all" ? "#000000" : "#9ca3af",
-                transition: "all 0.3s ease"
-              }}
             >
               <span className="relative z-10">Все проекты</span>
               {activeFilter !== "all" && (
@@ -123,58 +125,16 @@ export function PortfolioSection() {
             </button>
             
             <button
-              onClick={() => setActiveFilter("website")}
+              onClick={() => setActiveFilter("development")}
               className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none max-[540px]:w-full ${
-                activeFilter === "website"
+                activeFilter === "development"
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                   : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
-              style={{
-                color: activeFilter === "website" ? "#000000" : "#9ca3af",
-                transition: "all 0.3s ease"
-              }}
             >
               <Code2 className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="relative z-10">Сайты</span>
-              {activeFilter !== "website" && (
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              )}
-            </button>
-            
-            <button
-              onClick={() => setActiveFilter("telegram")}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none max-[540px]:w-full ${
-                activeFilter === "telegram"
-                  ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
-              }`}
-              style={{
-                color: activeFilter === "telegram" ? "#000000" : "#9ca3af",
-                transition: "all 0.3s ease"
-              }}
-            >
-              <Smartphone className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="relative z-10">Telegram Mini Apps</span>
-              {activeFilter !== "telegram" && (
-                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              )}
-            </button>
-            
-            <button
-              onClick={() => setActiveFilter("bot")}
-              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none max-[540px]:w-full ${
-                activeFilter === "bot"
-                  ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
-                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
-              }`}
-              style={{
-                color: activeFilter === "bot" ? "#000000" : "#9ca3af",
-                transition: "all 0.3s ease"
-              }}
-            >
-              <Bot className="w-4 h-4 md:w-5 md:h-5" />
-              <span className="relative z-10">Боты</span>
-              {activeFilter !== "bot" && (
+              <span className="relative z-10">Разработка</span>
+              {activeFilter !== "development" && (
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               )}
             </button>
@@ -186,14 +146,25 @@ export function PortfolioSection() {
                   ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                   : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
               }`}
-              style={{
-                color: activeFilter === "design" ? "#000000" : "#9ca3af",
-                transition: "all 0.3s ease"
-              }}
             >
               <Palette className="w-4 h-4 md:w-5 md:h-5" />
               <span className="relative z-10">Дизайн</span>
               {activeFilter !== "design" && (
+                <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              )}
+            </button>
+            
+            <button
+              onClick={() => setActiveFilter("seo")}
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-xl md:rounded-2xl font-medium transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base relative overflow-hidden group focus:outline-none max-[540px]:w-full ${
+                activeFilter === "seo"
+                  ? "bg-gradient-to-r from-white to-gray-200 text-black shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+                  : "bg-white/5 backdrop-blur-xl border border-white/10 text-gray-400 hover:border-white/30 hover:text-white hover:bg-white/10"
+              }`}
+            >
+              <Search className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="relative z-10">SEO</span>
+              {activeFilter !== "seo" && (
                 <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               )}
             </button>

@@ -77,7 +77,7 @@ export function Footer() {
                     Комплексные решения
                   </button>
                   <a 
-                    href="https://t.me/menshikovv1"
+                    href="https://t.me/M_Studio10"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full text-left text-sm text-white/70 hover:text-white transition-colors py-1"
@@ -143,7 +143,7 @@ export function Footer() {
               {openDropdown === 'contacts' && (
                 <div className="px-4 pb-4 space-y-4 animate-in slide-in-from-top-2 duration-300">
                   <a 
-                    href="https://t.me/menshikovv1"
+                    href="https://t.me/M_Studio10"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group py-1"
@@ -224,7 +224,7 @@ export function Footer() {
               </li>
               <li>
                 <a 
-                  href="https://t.me/menshikovv1"
+                  href="https://t.me/M_Studio10"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-white/70 hover:text-white transition-colors"
@@ -284,7 +284,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li>
                 <a 
-                  href="https://t.me/menshikovv1"
+                  href="https://t.me/M_Studio10"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group"

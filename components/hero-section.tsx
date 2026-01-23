@@ -86,7 +86,7 @@ export function HeroSection() {
           <Button
             size="lg"
             className="w-full sm:w-auto bg-white text-black hover:bg-white hover:text-black text-base md:text-lg px-6 md:px-8 py-5 md:py-6 rounded-full font-semibold group transition-all duration-300 cursor-pointer"
-            onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
+            onClick={() => window.open('https://t.me/M_Studio10', '_blank')}
           >
             Начать проект
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />

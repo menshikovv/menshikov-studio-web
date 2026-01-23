@@ -150,57 +150,179 @@ export function ServicesOverviewSection() {
           </div>
         </ScrollFade>
 
-        {/* Services grid */}
-        <ScrollFade delay={100}>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {services.map((service, index) => {
-              const IconComponent = service.icon
-              return (
-                <ScrollFade key={service.id} delay={100 + index * 50}>
-                  <div className="group relative h-[550px] md:h-[600px]">
-                    <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] p-6 md:p-8 h-full flex flex-col">
-                      {/* Icon with gradient background */}
-                      <div className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-r ${service.gradient} bg-opacity-20 group-hover:scale-110 transition-transform duration-300 w-fit`}>
-                        <IconComponent className="w-8 h-8 text-white" />
+        {/* Services by categories */}
+        <div className="space-y-16 md:space-y-20">
+          {/* Разработка */}
+          <ScrollFade delay={100}>
+            <div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 md:mb-12 text-left px-4 md:px-0">
+                Разработка
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {services.filter(service => [1, 2, 3].includes(service.id)).map((service, index) => {
+                  const IconComponent = service.icon
+                  return (
+                    <ScrollFade key={service.id} delay={100 + index * 50}>
+                      <div className="group relative h-[550px] md:h-[600px]">
+                        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] p-6 md:p-8 h-full flex flex-col">
+                          {/* Icon with gradient background */}
+                          <div className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-r ${service.gradient} bg-opacity-20 group-hover:scale-110 transition-transform duration-300 w-fit`}>
+                            <IconComponent className="w-8 h-8 text-white" />
+                          </div>
+
+                          {/* Title */}
+                          <h4 className="text-lg md:text-xl font-bold text-white mb-4 group-hover:text-white transition-colors duration-300">
+                            {service.title}
+                          </h4>
+
+                          {/* Description */}
+                          <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed flex-grow">
+                            {service.description}
+                          </p>
+
+                          {/* Features list - прижат к низу */}
+                          <div className="mt-auto">
+                            <ul className="space-y-2 text-xs md:text-sm text-gray-500">
+                              {service.features.slice(0, 3).map((feature, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight break-words hyphens-auto">{feature}</span>
+                                </li>
+                              ))}
+                              {service.features.length > 3 && (
+                                <li className="flex items-start gap-2 text-gray-600">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight">и многое другое...</span>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+
+                          {/* Hover overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl md:rounded-3xl`} />
+                        </div>
                       </div>
+                    </ScrollFade>
+                  )
+                })}
+              </div>
+            </div>
+          </ScrollFade>
 
-                      {/* Title */}
-                      <h3 className="text-lg md:text-xl font-bold text-white mb-4 group-hover:text-white transition-colors duration-300">
-                        {service.title}
-                      </h3>
+          {/* Дизайн */}
+          <ScrollFade delay={150}>
+            <div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 md:mb-12 text-left px-4 md:px-0">
+                Дизайн
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                {services.filter(service => [4].includes(service.id)).map((service, index) => {
+                  const IconComponent = service.icon
+                  return (
+                    <ScrollFade key={service.id} delay={150 + index * 50}>
+                      <div className="group relative h-[550px] md:h-[600px]">
+                        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] p-6 md:p-8 h-full flex flex-col">
+                          {/* Icon with gradient background */}
+                          <div className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-r ${service.gradient} bg-opacity-20 group-hover:scale-110 transition-transform duration-300 w-fit`}>
+                            <IconComponent className="w-8 h-8 text-white" />
+                          </div>
 
-                      {/* Description */}
-                      <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed flex-grow">
-                        {service.description}
-                      </p>
+                          {/* Title */}
+                          <h4 className="text-lg md:text-xl font-bold text-white mb-4 group-hover:text-white transition-colors duration-300">
+                            {service.title}
+                          </h4>
 
-                      {/* Features list - прижат к низу */}
-                      <div className="mt-auto">
-                        <ul className="space-y-2 text-xs md:text-sm text-gray-500">
-                          {service.features.slice(0, 3).map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
-                              <span className="leading-tight break-words hyphens-auto">{feature}</span>
-                            </li>
-                          ))}
-                          {service.features.length > 3 && (
-                            <li className="flex items-start gap-2 text-gray-600">
-                              <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
-                              <span className="leading-tight">и многое другое...</span>
-                            </li>
-                          )}
-                        </ul>
+                          {/* Description */}
+                          <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed flex-grow">
+                            {service.description}
+                          </p>
+
+                          {/* Features list - прижат к низу */}
+                          <div className="mt-auto">
+                            <ul className="space-y-2 text-xs md:text-sm text-gray-500">
+                              {service.features.slice(0, 3).map((feature, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight break-words hyphens-auto">{feature}</span>
+                                </li>
+                              ))}
+                              {service.features.length > 3 && (
+                                <li className="flex items-start gap-2 text-gray-600">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight">и многое другое...</span>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+
+                          {/* Hover overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl md:rounded-3xl`} />
+                        </div>
                       </div>
+                    </ScrollFade>
+                  )
+                })}
+              </div>
+            </div>
+          </ScrollFade>
 
-                      {/* Hover overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl md:rounded-3xl`} />
-                    </div>
-                  </div>
-                </ScrollFade>
-              )
-            })}
-          </div>
-        </ScrollFade>
+          {/* Маркетинг */}
+          <ScrollFade delay={200}>
+            <div>
+              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-8 md:mb-12 text-left px-4 md:px-0">
+                Маркетинг
+              </h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+                {services.filter(service => [5, 6, 7, 8, 9].includes(service.id)).map((service, index) => {
+                  const IconComponent = service.icon
+                  return (
+                    <ScrollFade key={service.id} delay={200 + index * 50}>
+                      <div className="group relative h-[550px] md:h-[600px]">
+                        <div className="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:shadow-[0_0_30px_rgba(255,255,255,0.1)] p-6 md:p-8 h-full flex flex-col">
+                          {/* Icon with gradient background */}
+                          <div className={`inline-flex p-4 rounded-2xl mb-6 bg-gradient-to-r ${service.gradient} bg-opacity-20 group-hover:scale-110 transition-transform duration-300 w-fit`}>
+                            <IconComponent className="w-8 h-8 text-white" />
+                          </div>
+
+                          {/* Title */}
+                          <h4 className="text-lg md:text-xl font-bold text-white mb-4 group-hover:text-white transition-colors duration-300">
+                            {service.title}
+                          </h4>
+
+                          {/* Description */}
+                          <p className="text-sm md:text-base text-gray-400 mb-6 leading-relaxed flex-grow">
+                            {service.description}
+                          </p>
+
+                          {/* Features list - прижат к низу */}
+                          <div className="mt-auto">
+                            <ul className="space-y-2 text-xs md:text-sm text-gray-500">
+                              {service.features.slice(0, 3).map((feature, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight break-words hyphens-auto">{feature}</span>
+                                </li>
+                              ))}
+                              {service.features.length > 3 && (
+                                <li className="flex items-start gap-2 text-gray-600">
+                                  <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${service.gradient} mt-2 flex-shrink-0`} />
+                                  <span className="leading-tight">и многое другое...</span>
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+
+                          {/* Hover overlay */}
+                          <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 rounded-2xl md:rounded-3xl`} />
+                        </div>
+                      </div>
+                    </ScrollFade>
+                  )
+                })}
+              </div>
+            </div>
+          </ScrollFade>
+        </div>
 
         {/* Call to action */}
         <ScrollFade delay={200}>
@@ -215,7 +337,7 @@ export function ServicesOverviewSection() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button
                   className="w-full sm:w-auto max-w-md mx-auto sm:mx-0 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-bold shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:shadow-[0_0_50px_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 min-h-[60px] sm:min-h-[64px] touch-manipulation"
-                  onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
+                  onClick={() => window.open('https://t.me/M_Studio10', '_blank')}
                 >
                   Получить консультацию
                 </button>

@@ -35,7 +35,7 @@ export function CTASection() {
                 <Button
                   size="lg"
                   className="w-full sm:w-auto max-w-md mx-auto sm:mx-0 px-6 sm:px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-bold shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:shadow-[0_0_50px_rgba(255,255,255,0.9)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer text-sm sm:text-base flex items-center justify-center gap-2 sm:gap-3 min-h-[60px] sm:min-h-[64px] touch-manipulation"
-                  onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
+                  onClick={() => window.open('https://t.me/M_Studio10', '_blank')}
                 >
                   <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
                   <span className="whitespace-nowrap">Получить консультацию</span>

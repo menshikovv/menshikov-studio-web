@@ -91,7 +91,7 @@ export function ProblemsSolutionsSection() {
             <Button
               size="lg"
               className="px-6 md:px-8 py-3 md:py-4 rounded-2xl bg-gradient-to-r from-white to-gray-200 text-black font-medium shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:shadow-[0_0_40px_rgba(255,255,255,0.8)] transition-all duration-300 cursor-pointer text-sm md:text-base"
-              onClick={() => window.open('https://t.me/menshikovv1', '_blank')}
+              onClick={() => window.open('https://t.me/M_Studio10', '_blank')}
             >
               Решить проблемы прямо сейчас
               <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
