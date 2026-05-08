@@ -1,4 +1,6 @@
-﻿import { motion, useReducedMotion } from 'framer-motion';
+﻿'use client'
+
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const services = [

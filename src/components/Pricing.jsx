@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Send, CheckCircle2, Loader2 } from 'lucide-react';

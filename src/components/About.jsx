@@ -1,4 +1,6 @@
-﻿import { motion, useReducedMotion } from 'framer-motion';
+﻿'use client'
+
+import { motion, useReducedMotion } from 'framer-motion';
 
 const stats = [
   { value: '50+', label: 'проектов запущено' },

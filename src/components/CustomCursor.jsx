@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useRef, useState } from 'react';
 
 // Hide the native cursor globally via a style tag

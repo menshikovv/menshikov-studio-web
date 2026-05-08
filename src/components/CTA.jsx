@@ -1,3 +1,5 @@
+'use client'
+
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Mail } from 'lucide-react';
 
