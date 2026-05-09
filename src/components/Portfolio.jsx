@@ -8,7 +8,6 @@ const projects = [
     id: 'mm',
     title: 'МаниМедиа',
     subtitle: 'Сайт и digital-платформа',
-    type: 'Web',
     link: 'https://mm-web-wheat.vercel.app',
     image: 'https://s10.iimage.su/s/02/gFdnVqNxzHGkuabCQzsa4ssT5FPo9Nnj2OF4kJoGP.png',
   },
@@ -16,7 +15,6 @@ const projects = [
     id: 'atlanttech',
     title: 'AtlantTech',
     subtitle: 'ПО для киберспортивных команд',
-    type: 'Web',
     link: 'https://atlanttech.pro',
     image: 'https://s10.iimage.su/s/02/gpfudzhxJDYJWuy8j2atRka3AmDWFseKMlokuipW2.png',
   },
@@ -24,7 +22,6 @@ const projects = [
     id: 'premium-brand',
     title: 'Premium Brand',
     subtitle: 'Telegram Mini App для магазина',
-    type: 'Mini App',
     link: 'https://t.me/premiumbrand_shop_bot/app',
     image: 'https://s10.iimage.su/s/02/g2QTj7oxSNHc40EMNrvjY2379KUdbOGH2OP0hYKIj.png',
   },
@@ -32,7 +29,6 @@ const projects = [
     id: 'aurora',
     title: 'Aurora',
     subtitle: 'Промо-сайт и визуальная подача',
-    type: 'Landing',
     link: 'https://aurora-web-lake.vercel.app',
     image: 'https://s10.iimage.su/s/02/gmHw4n8x81LfZ3e6fGGMM1blk4KOTC3rhlZv6KP1I.png',
   },
@@ -40,7 +36,6 @@ const projects = [
     id: 'ramka',
     title: 'Ramka Community',
     subtitle: 'Комьюнити-платформа',
-    type: 'Community',
     link: 'https://ramka-web.vercel.app',
     image: 'https://s10.iimage.su/s/02/ghfkFxkxtPPBOkFjEjLtmyvovZhbnHgFpd7u4Abfa.png',
   },
@@ -48,7 +43,6 @@ const projects = [
     id: 'youtube_lab',
     title: 'Youtube Lab',
     subtitle: 'Сайт для медиа-лаборатории',
-    type: 'Showcase',
     link: 'https://youtube-lab-phi.vercel.app',
     image: 'https://s10.iimage.su/s/03/gPODCeixsDUyMeNtHROzMBpqjDmsYwq14dK3nIS4d.png',
   },
@@ -73,11 +67,6 @@ function ProjectCard({ project, index }) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-        <div className="absolute top-3 left-3">
-          <span className="rounded-lg border border-white/15 bg-black/55 px-2.5 py-1 font-inter text-xs font-medium text-white/80 backdrop-blur-sm">
-            {project.type}
-          </span>
-        </div>
       </div>
 
       <div className="flex flex-1 flex-col p-5">
