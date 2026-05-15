@@ -9,16 +9,6 @@ export default function CTA() {
   return (
     <footer id="cta" className="bg-black text-white overflow-hidden" aria-label="Финальный призыв к действию">
       <div className="container-brand pt-24 pb-16">
-        <motion.p
-          className="font-inter text-white/30 text-sm mb-8 tracking-widest uppercase"
-          initial={prefersReduced ? {} : { opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
-          Начать проект
-        </motion.p>
-
         <motion.h2
           className="font-manrope font-extrabold text-white leading-none mb-16"
           style={{ fontSize: 'clamp(2.5rem, 8vw, 7rem)', letterSpacing: '-0.04em', lineHeight: 0.92 }}

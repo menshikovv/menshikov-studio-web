@@ -30,6 +30,7 @@ export default function Pricing() {
   const [description, setDescription] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const toggleService = (id) => {
     setSelected((prev) => prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]);
@@ -39,9 +40,26 @@ export default function Pricing() {
     e.preventDefault();
     if (!name || !contact) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setError('');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          contact,
+          services: selected.map((id) => serviceOptions.find((o) => o.id === id)?.label).filter(Boolean),
+          budget,
+          description,
+        }),
+      });
+      if (!res.ok) throw new Error('send failed');
+      setSubmitted(true);
+    } catch {
+      setError('Не удалось отправить заявку. Попробуйте ещё раз или напишите напрямую.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -165,6 +183,9 @@ export default function Pricing() {
                   />
                 </div>
 
+                {error && (
+                  <p className="font-inter text-red-500 text-sm text-center -mb-2">{error}</p>
+                )}
                 <button type="submit" disabled={loading}
                   className="group flex items-center justify-center gap-2 bg-black text-white font-inter font-semibold text-base px-8 py-4 rounded-2xl hover:bg-black/80 transition-all duration-300 min-h-[56px] disabled:opacity-60"
                 >
