@@ -28,20 +28,13 @@ export default function CTA() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <a
-            href="https://t.me/menshikovstudio"
+            href="https://t.me/menshikovv1"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 bg-white text-black font-inter font-semibold text-base px-8 py-4 rounded-2xl hover:bg-white/90 transition-all duration-300 min-h-[56px]"
           >
             Написать в Telegram
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="mailto:hello@menshikov.studio"
-            className="flex items-center gap-2 border border-white/20 text-white font-inter font-medium text-base px-8 py-4 rounded-2xl hover:border-white/40 hover:bg-white/5 transition-all duration-300 min-h-[56px]"
-          >
-            <Mail size={16} />
-            hello@menshikov.studio
           </a>
         </motion.div>
 

@@ -193,13 +193,6 @@ export default function Pricing() {
                     <><span>Отправить заявку</span><ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" /></>
                   )}
                 </button>
-
-                <p className="font-inter text-black/30 text-xs text-center">
-                  Или напрямую:{' '}
-                  <a href="https://t.me/menshikovstudio" target="_blank" rel="noopener noreferrer" className="text-black hover:underline">
-                    @menshikovstudio
-                  </a>
-                </p>
               </form>
             )}
           </motion.div>

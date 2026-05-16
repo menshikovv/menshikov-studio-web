@@ -46,7 +46,7 @@ export default function Services() {
           {services.map((s, i) => (
             <motion.a
               key={s.id}
-              href="https://t.me/menshikovstudio"
+              href="https://t.me/menshikovv1"
               target="_blank"
               rel="noopener noreferrer"
               initial={prefersReduced ? {} : { opacity: 0, x: -20 }}

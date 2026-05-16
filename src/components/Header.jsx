@@ -46,16 +46,6 @@ export default function Header() {
             </a>
 
             <div className="hidden items-center gap-6 md:flex">
-              <a
-                href="https://t.me/menshikovstudio"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`font-inter text-sm transition-colors duration-500 ${
-                  scrolled ? 'text-black/40 hover:text-black' : 'text-white/70 hover:text-white'
-                }`}
-              >
-                @menshikovstudio
-              </a>
               <button
                 onClick={scrollToCTA}
                 className={`min-h-[44px] rounded-xl px-5 py-2.5 font-inter text-sm font-medium transition-all duration-300 ${
